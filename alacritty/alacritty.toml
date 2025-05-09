@@ -1,0 +1,7 @@
+[window]
+opacity = 0.92
+blur = true
+dynamic_padding = true
+
+[font]
+size = 10
