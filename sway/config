@@ -229,7 +229,16 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+input type:touchpad {
+    tap enabled
+}
+
+
 bindsym $mod+r mode "resize"
+
+workspace 1 output HDMI-A-1
+workspace 2 output eDP-1
 
 #
 # Status Bar:

@@ -1,33 +1,82 @@
 {
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["clock", "idle_inhibitor"],
-    "modules-right": ["tray", "custom/scratchpad-indicator", "pulseaudio", "custom/power"],
-
+    "height": 20,
+    "spacing": 4,
+    "modules-left": [
+        "sway/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "cpu",
+        "memory",
+        "temperature",
+        "battery"
+    ],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    "network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname} ",
-        "format-disconnected": "", 
-        "max-length": 50,
-        "on-click": "kitty -e 'nmtui'"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        },
-    },
     "tray": {
-        "icon-size": 15,
         "spacing": 10
     },
     "clock": {
-        // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        // "format-alt": "{:%Y-%m-%d}"
-		"on-click": "gnome-calendar"
+        "format": "{:%H:%M:%S   %d %B %Y}",
+        "tooltip-format": "{:%A, %d %B %Y %H:%M:%S}",
+        "interval": 1
+    },
+    "cpu": {
+        "format": "{usage}% 🏽",
+        "interval": 5
+    },
+    "memory": {
+        "format": "{}% ",
+        "interval": 5
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C "
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "interval": 5,
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "network": {
+        "format-wifi": "{essid} ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         "format": "{volume}% {icon} ",
@@ -43,21 +92,16 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [
+                "",
+                "",
+                ""
+            ]
         },
         "on-click": "pavucontrol"
     },
-	"custom/power": {
-		"format": " ",
-		"on-click": "wlogout"
-	},
-    "custom/scratchpad-indicator": {
-        "format-text": "{}hi",
-        "return-type": "json",
-        "interval": 3,
-        "exec": "~/.local/bin/scratchpad-indicator 2> /dev/null",
-        "exec-if": "exit 0",
-        "on-click": "swaymsg 'scratchpad show'",
-        "on-click-right": "swaymsg 'move scratchpad'"
+    "custom/power": {
+        "format": "⏻",
+        "on-click": "swaylock --ignore-empty-password --daemonize --indicator-caps-lock --show-failed-attempts"
     }
 }
