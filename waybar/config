@@ -59,7 +59,7 @@
         },
         "format": "{capacity}% {icon}",
         "interval": 5,
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         "format-icons": [
@@ -72,16 +72,16 @@
     },
     "network": {
         "format-wifi": "{essid} ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-ethernet": "{ipaddr}/{cidr} 🖧 ",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "Disconnected ⊘",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         "format": "{volume}% {icon} ",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-bluetooth-muted": "{icon} {format_source}",
         "format-muted": "0% {icon} ",
         "format-source": "{volume}% ",
         "format-source-muted": "",
