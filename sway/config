@@ -39,11 +39,11 @@ output * bg /home/hiran/Pictures/wallpaper.png fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
+exec swayidle -w \
+          timeout 300 'swaylock --ignore-empty-password --daemonize --indicator-caps-lock --show-failed-attempts' \
+          timeout 600 'swaymsg "output * dpms off"'\
+	  resume 'swaymsg "output * dpms on"
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -62,11 +62,11 @@ output * bg /home/hiran/Pictures/wallpaper.png fill
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-set $cl_high #009ddc
-set $cl_indi #d9d8d8
-set $cl_back #231f20
-set $cl_fore #d9d8d8
-set $cl_urge #ee2e24
+set $cl_high #7aa2f7
+set $cl_indi #3d59a1
+set $cl_back #1a1b26
+set $cl_fore #c0caf5
+set $cl_urge #f7768e
 
 # Colors                border   bg       text     indi     childborder
 client.focused          $cl_high $cl_high $cl_fore $cl_indi $cl_high
@@ -78,12 +78,12 @@ client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
 #font pango:Sans 12
 
 # Window borders
-default_border pixel 2
+default_border pixel 1
 default_floating_border normal
 hide_edge_borders smart
 
 smart_gaps on
-gaps inner 6
+gaps inner 4
 
 # Brightness controls
 #bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 10
@@ -238,26 +238,10 @@ input type:touchpad {
 bindsym $mod+r mode "resize"
 
 workspace 1 output HDMI-A-1
-workspace 2 output eDP-1
+workspace 9 output eDP-1
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-#bar {
-#    position top
-#
-#    # When the status_command prints a new line to stdout, swaybar updates.
-#    # The default just shows the current date and time.
-#    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-#
-#    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #32323200 #32323200 #5c5c5c
-#    }
-#}
 exec waybar
+# exec mako
 
 #default_border pixel 1
 #default_border none
@@ -265,5 +249,7 @@ exec waybar
 #gaps outer 10
 
 bindsym Mod4+L exec swaylock --ignore-empty-password --daemonize --indicator-caps-lock --show-failed-attempts
+bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).png
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
 include /etc/sway/config.d/*
