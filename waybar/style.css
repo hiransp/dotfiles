@@ -2,52 +2,48 @@
     border: none;
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
     font-size: 13px;
-    color: #ffffff;
-    border-radius: 30px;
-    letter-spacing: 1px;
+    color: #c0caf5;
+    border-radius: 16px;
+    letter-spacing: 0.5px;
 }
 
 window {
-    /*font-weight: bold;*/
+    font-weight: bold;
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0);
+    background: rgba(26, 27, 38, 0.0); /* Transparent background */
 }
 
-/*-----module groups----*/
+/*-----Module Groups-----*/
+.modules-left,
+.modules-center,
 .modules-right {
-    background-color: rgba(0, 43, 51, 0.85);
-    margin: 2px 5px;
+    background-color: rgba(26, 27, 38, 0.9); /* #1a1b26 */
+    margin: 4px 5px;
+    padding: 2px 6px;
 }
 
-.modules-center {
-    background-color: rgba(0, 43, 51, 0.85);
-    margin: 2px 5px;
-    padding: 0 6px;
-}
-
-.modules-left {
-    font-weight: 600;
-    margin: 2px 5px;
-    background-color: rgba(0, 119, 179, 0.6);
-}
-
-/*-----modules indv----*/
+/*-----Workspace Buttons-----*/
 #workspaces button {
-    padding: 1px 5px;
+    padding: 2px 8px;
+    margin: 0 2px;
     background-color: transparent;
+    border-radius: 8px;
+    color: #7aa2f7;
 }
 
 #workspaces button:hover {
-    box-shadow: inherit;
-    background-color: rgba(0, 153, 153, 1);
+    background-color: #3d59a1;
+    color: #c0caf5;
 }
 
 #workspaces button.focused {
-    background-color: rgba(0, 43, 51, 0.85);
+    background-color: #7aa2f7;
+    color: #1a1b26;
 }
 
+/*-----Modules Styling-----*/
 #clock,
 #battery,
 #cpu,
@@ -62,49 +58,46 @@ window#waybar {
 #custom-menu,
 #idle_inhibitor {
     padding: 0 10px;
+    color: #c0caf5;
 }
 
+/*-----Mode Highlight-----*/
 #mode {
-    color: #cc3436;
+    color: #f7768e;  /* Red */
     font-weight: bold;
 }
 
+/*-----Power Button-----*/
 #custom-power {
-    background-color: rgba(0, 119, 179, 0.6);
+    background-color: #7aa2f7;
+    color: #1a1b26;
     border-radius: 100px;
     margin: 5px 5px;
-    padding: 1px 1px 1px 6px;
+    padding: 2px 8px;
+    font-weight: bold;
 }
 
-/*-----Indicators----*/
+/*-----Indicators-----*/
 #idle_inhibitor.activated {
-    color: #2dcc36;
+    color: #9ece6a; /* Green */
 }
 
 #pulseaudio.muted {
-    color: #cc3436;
+    color: #f7768e;
 }
 
 #battery.charging {
-    color: #2dcc36;
+    color: #9ece6a;
 }
 
 #battery.warning:not(.charging) {
-    color: #e6e600;
+    color: #e0af68;
 }
 
 #battery.critical:not(.charging) {
-    color: #cc3436;
+    color: #f7768e;
 }
 
 #temperature.critical {
-    color: #cc3436;
+    color: #f7768e;
 }
-
-/*-----Colors----*/
-/*
- *rgba(0,85,102,1),#005566 --> Indigo(dye)
- *rgba(0,43,51,1),#002B33 --> Dark Green 
- *rgba(0,153,153,1),#009999 --> Persian Green 
- *
- */
