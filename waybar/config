@@ -1,11 +1,14 @@
 {
     "height": 20,
     "spacing": 4,
+    "reload_style_on_change": true,
     "modules-left": [
         "sway/workspaces"
     ],
     "modules-center": [
-        "clock"
+        "clock",
+        "custom/seperator",
+        "mpris"
     ],
     "modules-right": [
         "pulseaudio",
@@ -26,6 +29,18 @@
         "tooltip-format": "{:%A, %d %B %Y %H:%M:%S}",
         "interval": 1
     },
+    "custom/separator": {
+        "format": "│"
+     },
+    "mpris": {
+        "format": "{status_icon} {artist} - {title}",
+        "max-length": 40,       
+        "status-icons": {
+           "playing": "▶",
+           "paused": "⏸",
+           "stopped": "■"
+        }
+     },
     "cpu": {
         "format": "{usage}% 🏽",
         "interval": 5

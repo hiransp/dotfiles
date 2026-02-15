@@ -4,6 +4,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+set $XDG_CURRENT_DESKTOP sway
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -27,7 +30,8 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/hiran/Pictures/wallpaper.png fill
+ output * bg /home/hiran/Pictures/gk9ader5sayf1.jpeg fill
+# output * bg /home/hiran/Pictures/wallpaper.jpeg fill
 #
 # Example configuration:
 #
@@ -249,7 +253,14 @@ exec waybar
 #gaps outer 10
 
 bindsym Mod4+L exec swaylock --ignore-empty-password --daemonize --indicator-caps-lock --show-failed-attempts
+#bindsym Mod4+L exec /home/hiran/.config/swaylock/lock-blur.sh
 bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).png
 bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
+bindsym $mod+Shift+i exec /home/hiran/.config/sway/rotate-wallpaper.sh
+
 include /etc/sway/config.d/*
+exec mako
+
+exec_always systemctl --user restart xdg-desktop-portal
+exec_always systemctl --user restart xdg-desktop-portal-wlr

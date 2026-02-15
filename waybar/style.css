@@ -19,17 +19,31 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-    background-color: rgba(26, 27, 38, 0.9); /* #1a1b26 */
-    margin: 4px 5px;
-    padding: 2px 6px;
+    /*background-color: rgba(26, 27, 38, 0.9); #1a1b26 */
+    margin: 4px 6px;
+    padding: 0 6px;
+}
+
+.modules-left,
+.modules-right {
+    background-color: rgba(26, 27, 38, 0.8);
+}
+
+#clock {
+  background-color: rgba(26, 27, 38, 0.8);
+  padding: 0 20px;
+}
+#mpris {
+  background-color: rgba(26, 27, 38, 0.8);
+  padding: 0 20px;
 }
 
 /*-----Workspace Buttons-----*/
 #workspaces button {
-    padding: 2px 8px;
-    margin: 0 2px;
+    padding: 4px 8px;
+    margin: 0px;
     background-color: transparent;
-    border-radius: 8px;
+    border-radius: 100%;
     color: #7aa2f7;
 }
 
@@ -40,7 +54,7 @@ window#waybar {
 
 #workspaces button.focused {
     background-color: #7aa2f7;
-    color: #1a1b26;
+    color: rgba(26, 27, 38, 0.9);
 }
 
 /*-----Modules Styling-----*/
