@@ -1,0 +1,12 @@
+show=drun
+width=600
+height=400
+prompt=Search...
+no_actions=true
+insensitive=true
+allow_images=true
+image_size=24
+columns=1
+hide_scroll=true
+matching=fuzzy
+layer=overlay

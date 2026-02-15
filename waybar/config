@@ -1,0 +1,111 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 0,
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+    "reload_style_on_change": true,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "mpris",
+        "custom/separator",
+        "pulseaudio",
+        "custom/separator",
+        "backlight",
+        "custom/separator",
+        "network",
+        "custom/separator",
+        "cpu",
+        "custom/separator",
+        "memory",
+        "custom/separator",
+        "temperature",
+        "custom/separator",
+        "battery",
+        "custom/separator",
+        "tray"
+    ],
+    "hyprland/workspaces": {
+        "format": "{id}",
+        "on-click": "activate",
+        "sort-by-number": true
+    },
+    "clock": {
+    "format": "\uf017 {:%H:%M:%S   %d %B %Y, %A}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+        "format": {
+            "today": "<b><u>{}</u></b>"
+        }
+    },
+    "interval": 1
+    },
+    "custom/separator": {
+        "format": "|",
+        "tooltip": false
+    },
+    "mpris": {
+        "format": "{status_icon} {artist} - {title}",
+        "format-paused": "{status_icon} {artist} - {title}",
+        "max-length": 35,
+        "status-icons": {
+            "playing": "\uf04b",
+            "paused": "\uf04c",
+            "stopped": "\uf04d"
+        }
+    },
+    "cpu": {
+        "format": "\uf4bc {usage}%",
+        "interval": 5
+    },
+    "memory": {
+        "format": "\uefc5 {}%",
+        "interval": 5,
+        "tooltip-format": "{used:0.1f}G / {total:0.1f}G"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "\ue20a {temperatureC}C",
+        "format-critical": "\ue20a {temperatureC}C!"
+    },
+    "backlight": {
+        "format": "\udb80\udcdd {percent}%"
+    },
+    "battery": {
+        "states": {
+            "good": 80,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "\uf240 {capacity}%",
+        "interval": 5,
+        "format-charging": "\udb85\udc0c \ueb2d {capacity}%",
+        "format-plugged": "\udb85\udc0c \ueb2d {capacity}%",
+        "format-alt": "\uf240 {time}"
+    },
+    "network": {
+        "format-wifi": "\uf1eb  {essid} {signalStrength}%",
+        "format-ethernet": "\udb80\ude00 {ipaddr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "\uf1eb {ifname}",
+        "format-disconnected": "\udb81\uddaa Offline",
+        "format-alt": "\uf1eb {ipaddr}/{cidr}"
+    },
+    "pulseaudio": {
+        "format": "\uf028  {volume}%",
+        "format-bluetooth": "\udb80\udcaf {volume}%",
+        "format-muted": "\ueb24 Mute",
+        "on-click": "pavucontrol"
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8
+    }
+}
