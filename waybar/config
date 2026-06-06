@@ -14,8 +14,6 @@
         "clock"
     ],
     "modules-right": [
-        "mpris",
-        "custom/separator",
         "pulseaudio",
         "custom/separator",
         "backlight",
@@ -51,16 +49,6 @@
         "format": "|",
         "tooltip": false
     },
-    "mpris": {
-        "format": "{status_icon} {artist} - {title}",
-        "format-paused": "{status_icon} {artist} - {title}",
-        "max-length": 35,
-        "status-icons": {
-            "playing": "\uf04b",
-            "paused": "\uf04c",
-            "stopped": "\uf04d"
-        }
-    },
     "cpu": {
         "format": "\uf4bc {usage}%",
         "interval": 5
@@ -92,11 +80,12 @@
     },
     "network": {
         "format-wifi": "\uf1eb  {essid} {signalStrength}%",
-        "format-ethernet": "\udb80\ude00 {ipaddr}",
+        "format-ethernet": "\udb80\ude00  {ipaddr} | {ifname} | {bandwidthTotalBytes}",
         "tooltip-format": "{ifname} via {gwaddr}",
         "format-linked": "\uf1eb {ifname}",
         "format-disconnected": "\udb81\uddaa Offline",
-        "format-alt": "\uf1eb {ipaddr}/{cidr}"
+        "format-alt": "\ueb01 {ifname} | IP: {ipaddr}/{cidr} | NM: {netmask} | GW: {gwaddr} | Up: {bandwidthUpBytes} | Down: {bandwidthDownBytes}",
+        "interval": 2
     },
     "pulseaudio": {
         "format": "\uf028  {volume}%",
